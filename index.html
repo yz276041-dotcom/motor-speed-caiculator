@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>馬達轉速計算</title>
+</head>
+<body>
+    <h2>馬達轉速計算器</h2>
+
+    <p>脈波數：</p>
+    <input id="pulse">
+
+    <p>每圈脈波數：</p>
+    <input id="ppr">
+
+    <p>測量時間（秒）：</p>
+    <input id="time">
+
+    <br><br>
+    <button onclick="calc()">計算</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calc() {
+            let pulse = document.getElementById("pulse").value;
+            let ppr = document.getElementById("ppr").value;
+            let time = document.getElementById("time").value;
+            let rpm = (pulse / ppr) * (60 / time);
+            document.getElementById("result").innerText =
+                "轉速：" + rpm + " RPM";
+        }
+    </script>
+</body>
+</html>
